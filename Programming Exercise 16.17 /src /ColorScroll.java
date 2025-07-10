@@ -84,6 +84,7 @@ import javafx.stage.Stage;
        root.setTop(coloredText);
        BorderPane.setAlignment(coloredText, Pos.CENTER);
        root.setCenter(sliderPane);
+       root.setStyle("-fx-padding: 20;"); // Add padding to make UI look cleaner.
 
      // Initial color setting
      setColor();
