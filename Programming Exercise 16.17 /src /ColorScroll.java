@@ -44,10 +44,17 @@ import javafx.stage.Stage;
      slOpacity.setValue(1.0); // Default opacity to full
 
      /**
+      * Set a better default color:
+      * slColor.setValue(#);
+      * 
       * Add listeners to update the text color:
-      *
       * slColor.valueProperty().addListener((obs, oldVal, newVal) -> setColor());
       */
+     slRed.setValue(0.5);
+     slGreen.setValue(0.5);
+     slBlue.setValue(0.5);
+     slOpacity.setValue(1.0);
+    
      slRed.valueProperty().addListener((obs, oldVal, newVal) -> setColor());
      slGreen.valueProperty().addListener((obs, oldVal, newVal) -> setColor());
      slBlue.valueProperty().addListener((obs, oldVal, newVal) -> setColor());
@@ -69,8 +76,9 @@ import javafx.stage.Stage;
        sliderPane.setVgap(10);
        sliderPane.addRow(0, new Label("Red:"), slRed);
        sliderPane.addRow(1, new Label("Green:"), slGreen);
-       sliderPane.addRow(0, new Label("Blue:"), slBlue);
-       sliderPane.addRow(0, new Label("Opacity:"), slOpacity);
+       sliderPane.addRow(2, new Label("Blue:"), slBlue);
+       sliderPane.addRow(3, new Label("Opacity:"), slOpacity);
+
 
      BorderPane root = new BorderPane();
        root.setTop(coloredText);
@@ -98,13 +106,13 @@ import javafx.stage.Stage;
     * 
     * Slider slider = new Slider(min, max, initial value);
     */
-   private Slider createColor() {
+   private Slider createColorSlider() {
      Slider slider = new Slider(0, 1, 0); // min, max, initial value
-       slider.setShowTickMarks(true);
-       slider.setShowTickLabels(true);
-       slider.setMajorTickUnit(0.25);
-       slider.setMinorTickCount(4);
-       return slider;
+     slider.setShowTickMarks(true);
+     slider.setShowTickLabels(true);
+     slider.setMajorTickUnit(0.25);
+     slider.setMinorTickCount(4);
+     return slider;
    }
    /**
     * Set Color:
